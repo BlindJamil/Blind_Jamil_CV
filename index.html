@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" style="color-scheme: light !important; background-color: #ffffff !important;">
 <head>
+    <!-- Force light mode immediately -->
+    <script>
+        // Force light mode on page load - before any rendering
+        document.documentElement.style.colorScheme = 'light';
+        document.documentElement.style.backgroundColor = '#ffffff';
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="color-scheme" content="light only">
     <meta name="supported-color-schemes" content="light">
+    <meta name="theme-color" content="#FEF3C7">
+    <style>:root { color-scheme: light only !important; }</style>
     <title>Blind Mizuri — Full-Stack Developer & Graphic Designer</title>
     <meta name="description" content="Creative full-stack developer and designer who blends functionality with elegance to craft engaging digital experiences.">
     
@@ -71,21 +79,79 @@
     
     <!-- Custom CSS -->
     <style>
-        /* FORCE LIGHT MODE - Prevent dark mode completely */
+        /* ULTRA FORCE LIGHT MODE - Override ALL dark mode attempts */
         html {
             color-scheme: light only !important;
-            -webkit-color-scheme: light !important;
+            -webkit-color-scheme: light only !important;
+            background-color: #ffffff !important;
         }
         
-        /* Force all colors to stay consistent */
+        /* Force light mode on all elements */
+        *, *::before, *::after {
+            color-scheme: light only !important;
+            -webkit-color-scheme: light only !important;
+        }
+        
+        /* Aggressive dark mode override */
         @media (prefers-color-scheme: dark) {
-            html, body {
+            html, body, * {
+                background-color: inherit !important;
+                color: inherit !important;
+                color-scheme: light only !important;
+                -webkit-color-scheme: light only !important;
+            }
+            
+            /* Force specific backgrounds */
+            body {
                 background-color: #ffffff !important;
                 color: #374151 !important;
             }
             
-            * {
-                color-scheme: light !important;
+            section {
+                background-color: inherit !important;
+            }
+            
+            .bg-white {
+                background-color: #ffffff !important;
+                color: #374151 !important;
+            }
+            
+            .bg-secondary {
+                background-color: #F9FAFB !important;
+                color: #374151 !important;
+            }
+            
+            .gradient-yellow {
+                background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%) !important;
+                color: #374151 !important;
+            }
+            
+            .bg-dark {
+                background-color: #374151 !important;
+                color: #ffffff !important;
+            }
+            
+            .text-dark {
+                color: #374151 !important;
+            }
+            
+            .text-white {
+                color: #ffffff !important;
+            }
+            
+            .text-accent {
+                color: #F59E0B !important;
+            }
+            
+            /* Force navigation colors */
+            nav {
+                background-color: rgba(255, 255, 255, 0.95) !important;
+                color: #374151 !important;
+            }
+            
+            /* Force all text colors */
+            h1, h2, h3, h4, h5, h6, p, span, div, a, button, label, input, textarea {
+                color: inherit !important;
             }
         }
         
@@ -735,7 +801,7 @@
         }
     </style>
 </head>
-<body class="font-sans bg-white text-dark smooth-scroll">
+<body class="font-sans bg-white text-dark smooth-scroll" style="background-color: #ffffff !important; color: #374151 !important; color-scheme: light !important;">
     
 
 
