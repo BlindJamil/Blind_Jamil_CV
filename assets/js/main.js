@@ -1053,13 +1053,45 @@ function initializeSmoothScroll() {
 
 // Add some interactive features
 document.addEventListener('DOMContentLoaded', function() {
-    // Removed typing effect - causes unwanted blinking cursor
-    // Clean, professional presentation without distractions
+    // Add improved typing effect to hero title
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        // Store original content
+        const originalText = heroTitle.textContent;
+        
+        // Clear the text first
+        heroTitle.textContent = '';
+        heroTitle.style.display = 'inline-block';
+        heroTitle.style.borderRight = '3px solid #F59E0B';
+        heroTitle.style.paddingRight = '5px';
+        
+        let charIndex = 0;
+        
+        // Typing function
+        function typeText() {
+            if (charIndex < originalText.length) {
+                heroTitle.textContent += originalText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, 100); // Speed of typing (100ms per character)
+            } else {
+                // After typing is complete, keep blinking cursor
+                heroTitle.style.animation = 'blink-caret 0.75s step-end infinite';
+            }
+        }
+        
+        // Start typing after a small delay
+        setTimeout(typeText, 500);
+    }
 });
 
-// CSS animations - removed typing effect
+// CSS animations for typing effect
 const style = document.createElement('style');
 style.textContent = `
+    @keyframes blink-caret {
+        from, to { border-right-color: transparent; }
+        50% { border-right-color: #F59E0B; }
+    }
+    
     .notification {
         backdrop-filter: blur(10px);
     }
@@ -1070,6 +1102,12 @@ style.textContent = `
         * {
             animation: none !important;
             transition: none !important;
+        }
+        
+        /* Disable typing effect for users who prefer reduced motion */
+        .hero-title {
+            animation: none !important;
+            border-right: none !important;
         }
     }
 `;

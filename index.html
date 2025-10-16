@@ -228,13 +228,7 @@
             hyphens: none !important;
             word-break: normal !important;
             max-width: 100% !important;
-            overflow: hidden !important;
-            user-select: none !important;
-            -webkit-user-select: none !important;
-            -moz-user-select: none !important;
-            -ms-user-select: none !important;
-            cursor: default !important;
-            caret-color: transparent !important;
+            overflow: visible !important;
         }
         
         p, a, span, div, label, button {
@@ -242,22 +236,16 @@
             overflow-wrap: break-word !important;
             hyphens: none !important;
             max-width: 100% !important;
-            caret-color: transparent !important;
         }
         
-        /* Remove any blinking cursor or text selection from hero */
-        .hero-name, .hero-title, .hero-intro {
-            user-select: none !important;
-            -webkit-user-select: none !important;
-            -moz-user-select: none !important;
-            -ms-user-select: none !important;
-            cursor: default !important;
-            caret-color: transparent !important;
-            outline: none !important;
+        /* Allow typing cursor on hero title */
+        .hero-title {
+            overflow: visible !important;
+            white-space: normal !important;
         }
         
         /* Ensure text containers never overflow */
-        .hero-name, .hero-title, .hero-intro,
+        .hero-name, .hero-intro,
         .portfolio-title, .portfolio-subtitle,
         .skills-title, .skills-subtitle,
         .experience-title, .experience-subtitle,
