@@ -246,7 +246,34 @@
         .contact-title, .contact-subtitle {
             max-width: 100% !important;
             overflow-wrap: break-word !important;
-            word-break: keep-all !important;
+            word-break: normal !important;
+        }
+        
+        /* Professional hero section text sizing */
+        @media (max-width: 375px) {
+            .hero-title {
+                font-size: 1rem !important;
+                line-height: 1.4 !important;
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
+            
+            .hero-name {
+                font-size: 1.875rem !important;
+            }
+            
+            .hero-intro {
+                font-size: 0.875rem !important;
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
+        }
+        
+        @media (min-width: 376px) and (max-width: 640px) {
+            .hero-title {
+                font-size: 1.125rem !important;
+                line-height: 1.4 !important;
+            }
         }
         
         /* Prevent awkward single character breaks */
@@ -402,6 +429,28 @@
                 padding-left: 1rem !important;
                 padding-right: 1rem !important;
             }
+            
+            /* Ensure buttons and interactive elements fit */
+            button, .cta-button {
+                white-space: normal !important;
+                min-height: 2.5rem;
+            }
+        }
+        
+        /* Extra small screens - Professional adjustments */
+        @media (max-width: 320px) {
+            .px-4 {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+            
+            .gap-4 {
+                gap: 0.5rem !important;
+            }
+            
+            h1, h2, h3 {
+                letter-spacing: -0.02em;
+            }
         }
     </style>
 </head>
@@ -506,15 +555,15 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center gradient-yellow px-4">
+    <section id="home" class="min-h-screen flex items-center justify-center gradient-yellow px-4 py-20">
         <div class="max-w-6xl mx-auto w-full text-center">
             <div class="fade-in-up">
-                <h1 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-dark mb-4 sm:mb-6 leading-tight px-2">
-                    <span class="hero-name" data-i18n="hero.name">Blind&nbsp;Mizuri</span><br>
-                    <span class="hero-title text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-accent" data-i18n="hero.title">Full-Stack Developer &amp; Graphic&nbsp;Designer</span>
+                <h1 class="font-display font-bold text-dark mb-4 sm:mb-6 leading-tight">
+                    <span class="hero-name block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2" data-i18n="hero.name">Blind&nbsp;Mizuri</span>
+                    <span class="hero-title block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-accent px-4" data-i18n="hero.title">Full-Stack Developer &amp; Graphic&nbsp;Designer</span>
                 </h1>
                 
-                <p class="hero-intro text-base sm:text-lg md:text-xl text-dark/80 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-2" data-i18n="hero.intro">
+                <p class="hero-intro text-sm sm:text-base md:text-lg lg:text-xl text-dark/80 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4 sm:px-6" data-i18n="hero.intro">
                     I'm a creative full-stack developer and designer who blends functionality with elegance to craft engaging digital&nbsp;experiences.
                 </p>
                 
@@ -546,68 +595,68 @@
             </div>
             
             <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fab fa-laravel text-2xl text-accent"></i>
+                <div class="skill-card bg-secondary p-4 sm:p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fab fa-laravel text-xl sm:text-2xl text-accent"></i>
                     </div>
-                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.laravel">Laravel</h3>
-                    <p class="text-sm text-dark/60" data-i18n="skills.laravelDesc">Backend Framework</p>
+                    <h3 class="font-medium text-dark mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="skills.laravel">Laravel</h3>
+                    <p class="text-xs sm:text-sm text-dark/60" data-i18n="skills.laravelDesc">Backend Framework</p>
                 </div>
                 
-                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fab fa-css3-alt text-2xl text-accent"></i>
+                <div class="skill-card bg-secondary p-4 sm:p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fab fa-css3-alt text-xl sm:text-2xl text-accent"></i>
                     </div>
-                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.tailwind">Tailwind CSS</h3>
-                    <p class="text-sm text-dark/60" data-i18n="skills.tailwindDesc">Styling Framework</p>
+                    <h3 class="font-medium text-dark mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="skills.tailwind">Tailwind CSS</h3>
+                    <p class="text-xs sm:text-sm text-dark/60" data-i18n="skills.tailwindDesc">Styling Framework</p>
                 </div>
                 
-                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fab fa-react text-2xl text-accent"></i>
+                <div class="skill-card bg-secondary p-4 sm:p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fab fa-react text-xl sm:text-2xl text-accent"></i>
                     </div>
-                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.react">React</h3>
-                    <p class="text-sm text-dark/60" data-i18n="skills.reactDesc">Frontend Library</p>
+                    <h3 class="font-medium text-dark mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="skills.react">React</h3>
+                    <p class="text-xs sm:text-sm text-dark/60" data-i18n="skills.reactDesc">Frontend Library</p>
                 </div>
                 
-                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-pencil-ruler text-2xl text-accent"></i>
+                <div class="skill-card bg-secondary p-4 sm:p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fas fa-pencil-ruler text-xl sm:text-2xl text-accent"></i>
                     </div>
-                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.uiux">UI/UX Design</h3>
-                    <p class="text-sm text-dark/60" data-i18n="skills.uiuxDesc">User Experience</p>
+                    <h3 class="font-medium text-dark mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="skills.uiux">UI/UX Design</h3>
+                    <p class="text-xs sm:text-sm text-dark/60" data-i18n="skills.uiuxDesc">User Experience</p>
                 </div>
                 
-                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-palette text-2xl text-accent"></i>
+                <div class="skill-card bg-secondary p-4 sm:p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fas fa-palette text-xl sm:text-2xl text-accent"></i>
                     </div>
-                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.photoshop">Photoshop</h3>
-                    <p class="text-sm text-dark/60" data-i18n="skills.photoshopDesc">Photo Editing</p>
+                    <h3 class="font-medium text-dark mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="skills.photoshop">Photoshop</h3>
+                    <p class="text-xs sm:text-sm text-dark/60" data-i18n="skills.photoshopDesc">Photo Editing</p>
                 </div>
                 
-                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-pen-nib text-2xl text-accent"></i>
+                <div class="skill-card bg-secondary p-4 sm:p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fas fa-pen-nib text-xl sm:text-2xl text-accent"></i>
                     </div>
-                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.illustrator">Illustrator</h3>
-                    <p class="text-sm text-dark/60" data-i18n="skills.illustratorDesc">Vector Graphics</p>
+                    <h3 class="font-medium text-dark mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="skills.illustrator">Illustrator</h3>
+                    <p class="text-xs sm:text-sm text-dark/60" data-i18n="skills.illustratorDesc">Vector Graphics</p>
                 </div>
                 
-                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-rocket text-2xl text-accent"></i>
+                <div class="skill-card bg-secondary p-4 sm:p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fas fa-rocket text-xl sm:text-2xl text-accent"></i>
                     </div>
-                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.optimization">Web Optimization</h3>
-                    <p class="text-sm text-dark/60" data-i18n="skills.optimizationDesc">Performance</p>
+                    <h3 class="font-medium text-dark mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="skills.optimization">Web Optimization</h3>
+                    <p class="text-xs sm:text-sm text-dark/60" data-i18n="skills.optimizationDesc">Performance</p>
                 </div>
                 
-                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
-                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-cloud text-2xl text-accent"></i>
+                <div class="skill-card bg-secondary p-4 sm:p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                        <i class="fas fa-cloud text-xl sm:text-2xl text-accent"></i>
                     </div>
-                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.deployment">Deployment</h3>
-                    <p class="text-sm text-dark/60" data-i18n="skills.deploymentDesc">Cloud Services</p>
+                    <h3 class="font-medium text-dark mb-1 sm:mb-2 text-sm sm:text-base" data-i18n="skills.deployment">Deployment</h3>
+                    <p class="text-xs sm:text-sm text-dark/60" data-i18n="skills.deploymentDesc">Cloud Services</p>
                 </div>
             </div>
         </div>
