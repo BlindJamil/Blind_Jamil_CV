@@ -80,35 +80,60 @@
     <!-- Custom CSS -->
     <style>
         /* ULTRA FORCE LIGHT MODE - Override ALL dark mode attempts */
+        :root {
+            color-scheme: light only !important;
+            -webkit-color-scheme: light only !important;
+            background-color: #ffffff !important;
+        }
+        
         html {
             color-scheme: light only !important;
             -webkit-color-scheme: light only !important;
             background-color: #ffffff !important;
+            filter: none !important;
         }
         
         /* Force light mode on all elements */
         *, *::before, *::after {
             color-scheme: light only !important;
             -webkit-color-scheme: light only !important;
+            filter: none !important;
+        }
+        
+        /* Disable any browser dark mode filters */
+        body {
+            filter: none !important;
+            -webkit-filter: none !important;
         }
         
         /* Aggressive dark mode override */
         @media (prefers-color-scheme: dark) {
-            html, body, * {
-                background-color: inherit !important;
-                color: inherit !important;
+            :root {
                 color-scheme: light only !important;
-                -webkit-color-scheme: light only !important;
+                background-color: #ffffff !important;
             }
             
-            /* Force specific backgrounds */
+            html {
+                background-color: #ffffff !important;
+                color: #374151 !important;
+                filter: none !important;
+            }
+            
             body {
                 background-color: #ffffff !important;
                 color: #374151 !important;
+                filter: none !important;
             }
             
+            * {
+                color-scheme: light only !important;
+                -webkit-color-scheme: light only !important;
+                filter: none !important;
+            }
+            
+            /* Force specific backgrounds */
             section {
-                background-color: inherit !important;
+                filter: none !important;
             }
             
             .bg-white {
@@ -131,8 +156,19 @@
                 color: #ffffff !important;
             }
             
-            .text-dark {
+            .bg-primary {
+                background-color: #FEF3C7 !important;
                 color: #374151 !important;
+            }
+            
+            .bg-accent {
+                background-color: #F59E0B !important;
+                color: #ffffff !important;
+            }
+            
+            .text-dark, .text-dark\/70, .text-dark\/80 {
+                color: #374151 !important;
+                opacity: 1 !important;
             }
             
             .text-white {
@@ -149,9 +185,31 @@
                 color: #374151 !important;
             }
             
+            /* Force form colors */
+            input, textarea, button {
+                background-color: #ffffff !important;
+                color: #374151 !important;
+                border-color: #E5E7EB !important;
+            }
+            
+            button.bg-accent, .cta-button {
+                background-color: #F59E0B !important;
+                color: #ffffff !important;
+            }
+            
             /* Force all text colors */
-            h1, h2, h3, h4, h5, h6, p, span, div, a, button, label, input, textarea {
+            h1, h2, h3, h4, h5, h6 {
+                color: #374151 !important;
+            }
+            
+            p, span, div, a, label {
                 color: inherit !important;
+            }
+            
+            /* Force footer */
+            footer {
+                background-color: #374151 !important;
+                color: #ffffff !important;
             }
         }
         
@@ -1325,8 +1383,8 @@
                     <!-- Contact Info -->
                     <div class="fade-in-up">
                         <div class="space-y-6 sm:space-y-8">
-                            <div>
-                                <h3 class="contact-info-title font-display font-semibold text-lg sm:text-xl text-dark mb-3 sm:mb-4" data-i18n="contactSection.infoTitle">Get In Touch</h3>
+                            <div class="mb-6">
+                                <h3 class="contact-info-title font-display font-semibold text-lg sm:text-xl text-dark mb-4 sm:mb-5" data-i18n="contactSection.infoTitle">Get In Touch</h3>
                                 <p class="contact-info-text text-sm sm:text-base text-dark/70 leading-relaxed" data-i18n="contactSection.infoText">
                                     I'm always interested in new opportunities and exciting projects. Whether you need a website, graphic design, or just want to say hello, feel free to reach out!
                                 </p>

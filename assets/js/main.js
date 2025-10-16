@@ -1073,8 +1073,31 @@ function initializeSmoothScroll() {
     });
 }
 
+// Force light mode colors - Nuclear option
+function forceLightMode() {
+    // Force on document root
+    document.documentElement.style.setProperty('color-scheme', 'light', 'important');
+    document.documentElement.style.setProperty('background-color', '#ffffff', 'important');
+    document.body.style.setProperty('background-color', '#ffffff', 'important');
+    document.body.style.setProperty('color', '#374151', 'important');
+    
+    // Remove any filters
+    document.documentElement.style.filter = 'none';
+    document.body.style.filter = 'none';
+}
+
+// Run immediately
+forceLightMode();
+
 // Add some interactive features
 document.addEventListener('DOMContentLoaded', function() {
+    // Force light mode again after DOM loads
+    forceLightMode();
+    
+    // Run again after a short delay to catch any late-loading styles
+    setTimeout(forceLightMode, 100);
+    setTimeout(forceLightMode, 500);
+    
     // Add improved typing effect to hero title
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
