@@ -593,6 +593,63 @@
             padding-top: 4rem;
         }
         
+        /* Mobile menu animation */
+        #mobileMenu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+        }
+        
+        #mobileMenu.show {
+            max-height: 500px;
+            opacity: 1;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        
+        /* Mobile menu items fade in */
+        #mobileMenu a, #mobileMenu button {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        
+        #mobileMenu.show a, #mobileMenu.show button {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stagger animation for menu items */
+        #mobileMenu.show a:nth-child(1), #mobileMenu.show > div:nth-child(1) a {
+            transition-delay: 0.05s;
+        }
+        
+        #mobileMenu.show a:nth-child(2), #mobileMenu.show > div:nth-child(2) a {
+            transition-delay: 0.1s;
+        }
+        
+        #mobileMenu.show a:nth-child(3), #mobileMenu.show > div:nth-child(3) a {
+            transition-delay: 0.15s;
+        }
+        
+        #mobileMenu.show a:nth-child(4), #mobileMenu.show > div:nth-child(4) a {
+            transition-delay: 0.2s;
+        }
+        
+        #mobileMenu.show a:nth-child(5), #mobileMenu.show > div:nth-child(5) a {
+            transition-delay: 0.25s;
+        }
+        
+        /* Hamburger icon animation */
+        #mobileMenuBtn i {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        #mobileMenuBtn.active i {
+            transform: rotate(90deg);
+        }
+        
         /* Fix any potential text rendering issues */
         body {
             -webkit-font-smoothing: antialiased;

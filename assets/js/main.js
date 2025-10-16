@@ -591,15 +591,37 @@ function initializeAnimations() {
 
 // Navigation functionality
 function initializeNavigation() {
-    // Mobile menu toggle
+    // Mobile menu toggle with smooth animation
     mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+        const isHidden = mobileMenu.classList.contains('hidden');
+        
+        if (isHidden) {
+            // Show menu
+            mobileMenu.classList.remove('hidden');
+            // Trigger animation on next frame
+            requestAnimationFrame(() => {
+                mobileMenu.classList.add('show');
+            });
+            mobileMenuBtn.classList.add('active');
+        } else {
+            // Hide menu
+            mobileMenu.classList.remove('show');
+            mobileMenuBtn.classList.remove('active');
+            // Wait for animation to complete before hiding
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
     });
 
     // Close mobile menu when clicking nav links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('show');
+            mobileMenuBtn.classList.remove('active');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
         });
     });
 
