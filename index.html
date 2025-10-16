@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blind Mizuri — Full-Stack Developer & Graphic Designer</title>
+    <meta name="description" content="Creative full-stack developer and designer who blends functionality with elegance to craft engaging digital experiences.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="full-stack developer, graphic designer, web development, Laravel, React, Tailwind CSS, UI/UX design, portfolio">
+    <meta name="author" content="Blind Mizuri">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="en">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blind Mizuri — Full-Stack Developer & Graphic Designer">
+    <meta property="og:description" content="Creative full-stack developer and designer who blends functionality with elegance to craft engaging digital experiences.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:site_name" content="Blind Mizuri Portfolio">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blind Mizuri — Full-Stack Developer & Graphic Designer">
+    <meta name="twitter:description" content="Creative full-stack developer and designer who blends functionality with elegance to craft engaging digital experiences.">
+    <meta name="twitter:creator" content="@blindmizuri">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23F59E0B'/><text x='50' y='65' font-size='60' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold'>BM</text></svg>">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com/">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FEF3C7', // light yellow
+                        accent: '#F59E0B', // golden yellow
+                        secondary: '#F9FAFB', // light gray
+                        dark: '#374151' // dark gray
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        /* RTL support */
+        [dir="rtl"] {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Custom yellow gradient */
+        .gradient-yellow {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+        }
+        
+        /* Hover effects */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Design gallery: uniform square grid */
+        #designProjectsContainer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        @media (min-width: 768px) {
+            #designProjectsContainer {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.75rem;
+            }
+        }
+        #designProjectsContainer .design-project {
+            background-color: #fff;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            aspect-ratio: 1 / 1;
+        }
+        #designProjectsContainer .design-project > div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        #designProjectsContainer .design-project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-dark smooth-scroll">
+    
+
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-200 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="font-display font-bold text-xl text-dark tracking-tight" data-i18n="hero.name">Blind Mizuri</div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-base font-medium text-dark hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-accent after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full" data-i18n="nav.home">Home</a>
+                    <a href="#skills" class="nav-link text-base font-medium text-dark hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-accent after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full" data-i18n="nav.skills">Skills</a>
+                    <a href="#portfolio" class="nav-link text-base font-medium text-dark hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-accent after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full" data-i18n="nav.portfolio">Portfolio</a>
+                    <a href="#experience" class="nav-link text-base font-medium text-dark hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-accent after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full" data-i18n="nav.experience">Experience</a>
+                    <a href="#contact" class="nav-link text-base font-medium text-dark hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-accent after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full" data-i18n="nav.contact">Contact</a>
+                    
+                    <!-- Language Switcher for Desktop -->
+                    <div class="relative ml-4">
+                        <button id="languageBtn" class="bg-secondary hover:bg-primary px-4 py-2 rounded-lg text-sm font-medium text-dark transition-all duration-300 flex items-center space-x-2 border border-gray-200">
+                            <i class="fas fa-globe text-accent"></i>
+                            <span id="currentLang">EN</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="languageDropdown" class="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-xl border hidden">
+                            <button class="lang-option w-full text-left px-4 py-2 text-sm hover:bg-primary rounded-t-lg" data-lang="en" data-dir="ltr">English</button>
+                            <button class="lang-option w-full text-left px-4 py-2 text-sm hover:bg-primary" data-lang="ar" data-dir="rtl">العربية</button>
+                            <button class="lang-option w-full text-left px-4 py-2 text-sm hover:bg-primary rounded-b-lg" data-lang="ku" data-dir="rtl">کوردی</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medium Screen Navigation -->
+                <div class="hidden md:flex lg:hidden items-center space-x-6">
+                    <a href="#home" class="nav-link text-sm font-medium text-dark hover:text-accent transition-colors" data-i18n="nav.home">Home</a>
+                    <a href="#skills" class="nav-link text-sm font-medium text-dark hover:text-accent transition-colors" data-i18n="nav.skills">Skills</a>
+                    <a href="#portfolio" class="nav-link text-sm font-medium text-dark hover:text-accent transition-colors" data-i18n="nav.portfolio">Portfolio</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-dark hover:text-accent transition-colors" data-i18n="nav.contact">Contact</a>
+                    
+                    <!-- Language Switcher for Medium Screens -->
+                    <div class="relative">
+                        <button id="languageBtnMd" class="bg-secondary hover:bg-primary px-3 py-2 rounded-lg text-xs font-medium text-dark transition-all duration-300 flex items-center space-x-1 border border-gray-200">
+                            <i class="fas fa-globe text-accent text-xs"></i>
+                            <span id="currentLangMd">EN</span>
+                        </button>
+                        <div id="languageDropdownMd" class="absolute right-0 mt-2 w-28 bg-white rounded-lg shadow-xl border hidden">
+                            <button class="lang-option w-full text-left px-3 py-2 text-xs hover:bg-primary rounded-t-lg" data-lang="en" data-dir="ltr">English</button>
+                            <button class="lang-option w-full text-left px-3 py-2 text-xs hover:bg-primary" data-lang="ar" data-dir="rtl">العربية</button>
+                            <button class="lang-option w-full text-left px-3 py-2 text-xs hover:bg-primary rounded-b-lg" data-lang="ku" data-dir="rtl">کوردی</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i class="fas fa-bars text-dark text-lg"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-gray-200 shadow-lg hidden">
+            <div class="px-6 py-6 space-y-4">
+                <a href="#home" class="nav-link block text-lg font-medium text-dark hover:text-accent hover:bg-gray-50 px-4 py-3 rounded-lg transition-all duration-300" data-i18n="nav.home">Home</a>
+                <a href="#skills" class="nav-link block text-lg font-medium text-dark hover:text-accent hover:bg-gray-50 px-4 py-3 rounded-lg transition-all duration-300" data-i18n="nav.skills">Skills</a>
+                <a href="#portfolio" class="nav-link block text-lg font-medium text-dark hover:text-accent hover:bg-gray-50 px-4 py-3 rounded-lg transition-all duration-300" data-i18n="nav.portfolio">Portfolio</a>
+                <a href="#experience" class="nav-link block text-lg font-medium text-dark hover:text-accent hover:bg-gray-50 px-4 py-3 rounded-lg transition-all duration-300" data-i18n="nav.experience">Experience</a>
+                <a href="#contact" class="nav-link block text-lg font-medium text-dark hover:text-accent hover:bg-gray-50 px-4 py-3 rounded-lg transition-all duration-300" data-i18n="nav.contact">Contact</a>
+                
+                <!-- Language Switcher for Mobile -->
+                <div class="border-t border-gray-200 pt-4 mt-4">
+                    <div class="relative">
+                        <button id="languageBtnMobile" class="w-full bg-secondary hover:bg-primary px-4 py-3 rounded-lg text-base font-medium text-dark transition-all duration-300 flex items-center justify-between border border-gray-200">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-globe text-accent"></i>
+                                <span data-i18n="ui.language">Language</span>
+                            </div>
+                            <span id="currentLangMobile">EN</span>
+                        </button>
+                        <div id="languageDropdownMobile" class="mt-2 w-full bg-white rounded-lg shadow-xl border hidden">
+                            <button class="lang-option w-full text-left px-4 py-3 text-base hover:bg-primary rounded-t-lg flex items-center justify-between" data-lang="en" data-dir="ltr">
+                                <span>English</span>
+                                <span class="text-sm text-gray-500">EN</span>
+                            </button>
+                            <button class="lang-option w-full text-left px-4 py-3 text-base hover:bg-primary flex items-center justify-between" data-lang="ar" data-dir="rtl">
+                                <span>العربية</span>
+                                <span class="text-sm text-gray-500">ع</span>
+                            </button>
+                            <button class="lang-option w-full text-left px-4 py-3 text-base hover:bg-primary rounded-b-lg flex items-center justify-between" data-lang="ku" data-dir="rtl">
+                                <span>کوردی</span>
+                                <span class="text-sm text-gray-500">ک</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center gradient-yellow">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="fade-in-up">
+                <h1 class="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-dark mb-6 leading-tight">
+                    <span class="hero-name" data-i18n="hero.name">Blind Mizuri</span><br>
+                    <span class="hero-title text-2xl md:text-3xl lg:text-4xl font-medium text-accent" data-i18n="hero.title">Full-Stack Developer & Graphic Designer</span>
+                </h1>
+                
+                <p class="hero-intro text-lg md:text-xl text-dark/80 mb-8 max-w-3xl mx-auto leading-relaxed" data-i18n="hero.intro">
+                    I'm a creative full-stack developer and designer who blends functionality with elegance to craft engaging digital experiences.
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-12">
+                    <a href="https://github.com" target="_blank" class="social-link bg-white text-dark p-4 rounded-full shadow-lg hover-lift hover:text-accent">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-link bg-white text-dark p-4 rounded-full shadow-lg hover-lift hover:text-accent">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-link bg-white text-dark p-4 rounded-full shadow-lg hover-lift hover:text-accent">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                </div>
+                
+                <a href="#portfolio" class="cta-button inline-block bg-accent text-white px-8 py-4 rounded-full font-medium hover:bg-accent/90 transition-all duration-300 hover-lift" data-i18n="hero.cta">
+                    View My Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="skills-title font-display font-bold text-3xl md:text-4xl text-dark mb-4" data-i18n="skills-title">Skills & Expertise</h2>
+                <p class="skills-subtitle text-lg text-dark/70 max-w-2xl mx-auto" data-i18n="skills-subtitle">Technologies and tools I use to bring ideas to life</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-laravel text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.laravel">Laravel</h3>
+                    <p class="text-sm text-dark/60" data-i18n="skills.laravelDesc">Backend Framework</p>
+                </div>
+                
+                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-css3-alt text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.tailwind">Tailwind CSS</h3>
+                    <p class="text-sm text-dark/60" data-i18n="skills.tailwindDesc">Styling Framework</p>
+                </div>
+                
+                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-react text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.react">React</h3>
+                    <p class="text-sm text-dark/60" data-i18n="skills.reactDesc">Frontend Library</p>
+                </div>
+                
+                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-pencil-ruler text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.uiux">UI/UX Design</h3>
+                    <p class="text-sm text-dark/60" data-i18n="skills.uiuxDesc">User Experience</p>
+                </div>
+                
+                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-palette text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.photoshop">Photoshop</h3>
+                    <p class="text-sm text-dark/60" data-i18n="skills.photoshopDesc">Photo Editing</p>
+                </div>
+                
+                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-pen-nib text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.illustrator">Illustrator</h3>
+                    <p class="text-sm text-dark/60" data-i18n="skills.illustratorDesc">Vector Graphics</p>
+                </div>
+                
+                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rocket text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.optimization">Web Optimization</h3>
+                    <p class="text-sm text-dark/60" data-i18n="skills.optimizationDesc">Performance</p>
+                </div>
+                
+                <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cloud text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="font-medium text-dark mb-2" data-i18n="skills.deployment">Deployment</h3>
+                    <p class="text-sm text-dark/60" data-i18n="skills.deploymentDesc">Cloud Services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-secondary">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="portfolio-title font-display font-bold text-3xl md:text-4xl text-dark mb-4" data-i18n="portfolio.title">Selected Work</h2>
+                <p class="portfolio-subtitle text-lg text-dark/70 max-w-2xl mx-auto" data-i18n="portfolio.subtitle">A showcase of my recent web development and graphic design projects</p>
+            </div>
+            
+            <!-- Web Development Section -->
+            <div class="mb-20">
+                <div class="text-center mb-12 fade-in-up">
+                    <h3 class="font-display font-bold text-2xl md:text-3xl text-dark mb-4 flex items-center justify-center">
+                        <span class="mr-3">🧱</span>
+                        <span data-i18n="portfolio.webProjectsTitle">Web Development Projects</span>
+                    </h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8" id="webProjectsContainer">
+                    <!-- Web Project: MHA Plus -->
+                    <div class="portfolio-item fade-in-up hover-lift web-project group">
+                        <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="h-48 relative flex-shrink-0">
+                                <img src="assets/images/mhaplus.png" alt="MHA Plus website screenshot" data-alt-en="MHA Plus website screenshot" data-alt-ar="لقطة شاشة لموقع MHA Plus" data-alt-ku="وێنەی ماڵپەڕی MHA Plus" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="font-display font-semibold text-xl text-dark mb-3" data-i18n="projects.mhaplus.title">MHA Plus Website</h3>
+                                <p class="text-dark/70 mb-4 flex-grow" data-i18n="projects.mhaplus.desc">Corporate website for MHA Plus with clear services and modern design.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">Laravel</span>
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">PHP</span>
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">JavaScript</span>
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">Tailwind</span>
+                                </div>
+                                <a href="https://mhaplus.com" target="_blank" rel="noopener" class="inline-flex items-center text-accent hover:text-accent/80 font-medium mt-auto">
+                                    <span data-i18n="portfolio.viewProject">View Project</span> <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Web Project: AiroScan -->
+                    <div class="portfolio-item fade-in-up hover-lift web-project group">
+                        <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="h-48 relative flex-shrink-0">
+                                <img src="assets/images/airoscan.png" alt="AiroScan website screenshot" data-alt-en="AiroScan website screenshot" data-alt-ar="لقطة شاشة لموقع AiroScan" data-alt-ku="وێنەی ماڵپەڕی AiroScan" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="font-display font-semibold text-xl text-dark mb-3" data-i18n="projects.airoscan.title">AiroScan Website</h3>
+                                <p class="text-dark/70 mb-4 flex-grow" data-i18n="projects.airoscan.desc">Responsive website for AiroScan with clean UI and fast performance.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">Tailwind</span>
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">JavaScript</span>
+                                </div>
+                                <a href="https://airoscan.com" target="_blank" rel="noopener" class="inline-flex items-center text-accent hover:text-accent/80 font-medium mt-auto">
+                                    <span data-i18n="portfolio.viewProject">View Project</span> <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Web Project: TIU Charity -->
+                    <div class="portfolio-item fade-in-up hover-lift web-project group">
+                        <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+                            <div class="h-48 relative flex-shrink-0">
+                                <img src="assets/images/tiu charity.png" alt="TIU Charity website screenshot" data-alt-en="TIU Charity website screenshot" data-alt-ar="لقطة شاشة لموقع TIU Charity" data-alt-ku="وێنەی ماڵپەڕی TIU Charity" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="font-display font-semibold text-xl text-dark mb-3" data-i18n="projects.tiucharity.title">TIU Charity</h3>
+                                <p class="text-dark/70 mb-4 flex-grow" data-i18n="projects.tiucharity.desc">Donation platform for Tishk International University to support charitable initiatives and community projects.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">Laravel</span>
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">PHP</span>
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">Tailwind</span>
+                                    <span class="px-3 py-1 bg-primary text-xs font-medium rounded-full">JavaScript</span>
+                                </div>
+                                <div class="inline-flex items-center text-accent/60 font-medium mt-auto cursor-not-allowed">
+                                    <span data-i18n="portfolio.comingSoon">Coming Soon</span> <i class="fas fa-clock ml-2"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Graphic Design Section -->
+            <div>
+                <div class="text-center mb-12 fade-in-up">
+                    <h3 class="font-display font-bold text-2xl md:text-3xl text-dark mb-4 flex items-center justify-center">
+                        <span class="mr-3">🎨</span>
+                        <span data-i18n="portfolio.designProjectsTitle">Graphic Design Gallery</span>
+                    </h3>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8" id="designProjectsContainer">
+                    <!-- Design: Booth Image (Featured) -->
+                    <div class="design-project hover-lift fade-in-up cursor-pointer group">
+                        <div class="w-full h-full relative">
+                            <img src="assets/images/booth.png" alt="Exhibition booth design" data-alt-en="Exhibition booth design" data-alt-ar="تصميم جناح عرض" data-alt-ku="دیزاینی بووتی پێشاندان" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-2 left-2 right-2 text-white text-sm md:text-base font-medium drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" data-i18n="projects.booth.title">Exhibition Booth</div>
+                        </div>
+                    </div>
+                    <!-- Design: Services Brochure (Visible) -->
+                    <div class="design-project hover-lift fade-in-up cursor-pointer group">
+                        <div class="w-full h-full relative">
+                            <img src="assets/images/services.png" alt="Services brochure design" data-alt-en="Services brochure design" data-alt-ar="تصميم نشرة الخدمات" data-alt-ku="دیزاینی بروشوری خزمەتگوزاری" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-2 left-2 right-2 text-white text-sm md:text-base font-medium drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" data-i18n="projects.services.title">Services Brochure</div>
+                        </div>
+                    </div>
+
+                    <!-- Design: Social Media (Visible) -->
+                    <div class="design-project hover-lift fade-in-up cursor-pointer group">
+                        <div class="w-full h-full relative">
+                            <img src="assets/images/social%20media.png" alt="Social media post design" data-alt-en="Social media post design" data-alt-ar="تصميم منشور لوسائل التواصل" data-alt-ku="دیزاینی پۆستی سۆشیاڵ میدیا" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-2 left-2 right-2 text-white text-sm md:text-base font-medium drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" data-i18n="projects.social.title">Social Media</div>
+                        </div>
+                    </div>
+
+                    <!-- Design: Web Design 1 (Hidden by default) -->
+                    <div class="design-project hover-lift fade-in-up cursor-pointer group hidden">
+                        <div class="w-full h-full relative">
+                            <img src="assets/images/web-1.png" alt="Web design project" data-alt-en="Web design project" data-alt-ar="مشروع تصميم ويب" data-alt-ku="پڕۆژەی دیزاینی ماڵپەڕ" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-2 left-2 right-2 text-white text-sm md:text-base font-medium drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" data-i18n="projects.web1.title">Web Design</div>
+                        </div>
+                    </div>
+
+                    <!-- Design: Web Design 2 (Hidden by default) -->
+                    <div class="design-project hover-lift fade-in-up cursor-pointer group hidden">
+                        <div class="w-full h-full relative">
+                            <img src="assets/images/web-2.png" alt="Web design mockup" data-alt-en="Web design mockup" data-alt-ar="نموذج تصميم ويب" data-alt-ku="نموونەی دیزاینی ماڵپەڕ" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-2 left-2 right-2 text-white text-sm md:text-base font-medium drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" data-i18n="projects.web2.title">Web Mockup</div>
+                        </div>
+                    </div>
+
+                    <!-- Design: Print (Hidden by default) -->
+                    <div class="design-project hover-lift fade-in-up cursor-pointer group hidden">
+                        <div class="w-full h-full relative">
+                            <img src="assets/images/print.png" alt="Print design" data-alt-en="Print design" data-alt-ar="تصميم مطبوعات" data-alt-ku="دیزاینی چاپ" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-2 left-2 right-2 text-white text-sm md:text-base font-medium drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" data-i18n="projects.print.title">Print Design</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hidden Design Projects (More) -->
+                    <div class="design-project hover-lift fade-in-up cursor-pointer group hidden">
+                        <div class="w-full h-full relative">
+                            <img src="assets/images/package.png" alt="Packaging design" data-alt-en="Packaging design" data-alt-ar="تصميم التغليف" data-alt-ku="دیزاینی پاکێج" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-2 left-2 right-2 text-white text-sm md:text-base font-medium drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" data-i18n="projects.package.title">Packaging</div>
+                        </div>
+                    </div>
+                    
+                    <div class="design-project hover-lift fade-in-up cursor-pointer group hidden">
+                        <div class="w-full h-full relative">
+                            <img src="assets/images/production.png" alt="Production design" data-alt-en="Production design" data-alt-ar="تصميم الإنتاج" data-alt-ku="دیزاینی پرۆدەکشن" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-2 left-2 right-2 text-white text-sm md:text-base font-medium drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" data-i18n="projects.production.title">Production</div>
+                        </div>
+                    </div>
+                    
+                    <div class="design-project hover-lift fade-in-up cursor-pointer group hidden">
+                        <div class="w-full h-full relative">
+                            <img src="assets/images/graphoc%20design.png" alt="Graphic design" data-alt-en="Graphic design" data-alt-ar="تصميم جرافيك" data-alt-ku="دیزاینی گرافیک" loading="lazy" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none"></div>
+                            <div class="absolute bottom-2 left-2 right-2 text-white text-sm md:text-base font-medium drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity" data-i18n="projects.graphic.title">Graphic Design</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center fade-in-up">
+                    <button id="seeMoreDesign" class="bg-accent text-white px-8 py-3 rounded-full font-medium hover:bg-accent/90 transition-all duration-300 hover-lift" data-i18n="portfolio.seeMoreDesign">
+                        See More Design Work
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="experience-title font-display font-bold text-3xl md:text-4xl text-dark mb-4" data-i18n="experience-title">Experience</h2>
+                <p class="experience-subtitle text-lg text-dark/70 max-w-2xl mx-auto" data-i18n="experience-subtitle">Professional journey and key achievements</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-12">
+                    <!-- Current Role -->
+                    <div class="experience-item fade-in-up">
+                        <div class="bg-secondary rounded-xl p-8 hover-lift">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                                <div>
+                                    <h3 class="font-display font-semibold text-xl text-dark mb-2" data-i18n="exp.current.title">Head of Operations & Co-Founder</h3>
+                                    <p class="text-accent font-medium mb-2" data-i18n="exp.current.company">MHA Plus</p>
+                                    <p class="text-sm text-dark/60" data-i18n="exp.current.time">2022 - Present</p>
+                                </div>
+                                <div class="mt-4 md:mt-0">
+                                    <span class="inline-block bg-primary px-4 py-2 rounded-full text-sm font-medium text-dark" data-i18n="exp.current.badge">Co-Founder</span>
+                                </div>
+                            </div>
+                            <p class="text-dark/70 leading-relaxed mb-4" data-i18n="exp.current.desc">
+                                Co-founded and currently manage all operational aspects of MHA Plus, overseeing business strategy, client relations, and service delivery. Drive growth through strategic marketing initiatives, develop and implement business processes, and ensure high-quality project execution from concept to completion.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.businessStrategy">Business Strategy</span>
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.marketingStrategy">Marketing Strategy</span>
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.clientManagement">Client Management</span>
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.projectExecution">Project Execution</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Freelance Work -->
+                    <div class="experience-item fade-in-up">
+                        <div class="bg-secondary rounded-xl p-8 hover-lift">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                                <div>
+                                    <h3 class="font-display font-semibold text-xl text-dark mb-2" data-i18n="exp.freelance.title">Freelance Developer & Designer</h3>
+                                    <p class="text-accent font-medium mb-2" data-i18n="exp.freelance.company">Independent</p>
+                                    <p class="text-sm text-dark/60" data-i18n="exp.freelance.time">2020 - Present</p>
+                                </div>
+                                <div class="mt-4 md:mt-0">
+                                    <span class="inline-block bg-primary px-4 py-2 rounded-full text-sm font-medium text-dark" data-i18n="exp.freelance.badge">Freelance</span>
+                                </div>
+                            </div>
+                            <p class="text-dark/70 leading-relaxed mb-4" data-i18n="exp.freelance.desc">
+                                Delivering end-to-end web development and graphic design solutions for diverse clients. Specialized in creating responsive websites, e-commerce platforms, and comprehensive brand identity systems that drive business growth and user engagement.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.fullStack">Full-Stack Development</span>
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.brandDesign">Brand Design</span>
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.clientRelations">Client Relations</span>
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.projectManagement">Project Management</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Personal Projects -->
+                    <div class="experience-item fade-in-up">
+                        <div class="bg-secondary rounded-xl p-8 hover-lift">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                                <div>
+                                    <h3 class="font-display font-semibold text-xl text-dark mb-2" data-i18n="exp.personal.title">Personal Projects & Learning</h3>
+                                    <p class="text-accent font-medium mb-2" data-i18n="exp.personal.company">Continuous Development</p>
+                                    <p class="text-sm text-dark/60" data-i18n="exp.personal.time">2019 - Present</p>
+                                </div>
+                                <div class="mt-4 md:mt-0">
+                                    <span class="inline-block bg-primary px-4 py-2 rounded-full text-sm font-medium text-dark" data-i18n="exp.personal.badge">Innovation</span>
+                                </div>
+                            </div>
+                            <p class="text-dark/70 leading-relaxed mb-4" data-i18n="exp.personal.desc">
+                                Continuously exploring new technologies and design trends through personal projects. Built various web applications, mobile-responsive sites, and design systems while staying current with industry best practices and emerging technologies.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.selfLearning">Self-Learning</span>
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.innovation">Innovation</span>
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.experimentation">Experimentation</span>
+                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.problemSolving">Problem Solving</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-yellow">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="contact-title font-display font-bold text-3xl md:text-4xl text-dark mb-4" data-i18n="contactSection.title">Let's Work Together</h2>
+                <p class="contact-subtitle text-lg text-dark/70 max-w-2xl mx-auto" data-i18n="contactSection.subtitle">Ready to bring your ideas to life? Get in touch and let's create something amazing.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="fade-in-up">
+                        <form class="space-y-6" id="contactForm">
+                            <div>
+                                <label for="name" class="form-label block text-sm font-medium text-dark mb-2" data-i18n="contactSection.labels.name">Name</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="form-label block text-sm font-medium text-dark mb-2" data-i18n="contactSection.labels.email">Email</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="form-label block text-sm font-medium text-dark mb-2" data-i18n="contactSection.labels.message">Message</label>
+                                <textarea id="message" name="message" rows="5" required 
+                                          class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 resize-vertical"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-button w-full bg-accent text-white py-3 px-6 rounded-lg font-medium hover:bg-accent/90 transition-all duration-300 hover-lift" data-i18n="contactSection.submit">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="fade-in-up">
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="contact-info-title font-display font-semibold text-xl text-dark mb-4" data-i18n="contactSection.infoTitle">Get In Touch</h3>
+                                <p class="contact-info-text text-dark/70 leading-relaxed" data-i18n="contactSection.infoText">
+                                    I'm always interested in new opportunities and exciting projects. Whether you need a website, graphic design, or just want to say hello, feel free to reach out!
+                                </p>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+                                        <i class="fas fa-envelope text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-dark" data-i18n="contactSection.metaLabels.email">Email</p>
+                                        <p class="text-dark/70">blindmizuri@example.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+                                        <i class="fas fa-map-marker-alt text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-dark" data-i18n="contactSection.metaLabels.location">Location</p>
+                                        <p class="text-dark/70" data-i18n="contactSection.metaValues.location">Available Worldwide</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+                                        <i class="fas fa-clock text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-dark" data-i18n="contactSection.metaLabels.responseTime">Response Time</p>
+                                        <p class="text-dark/70" data-i18n="contactSection.metaValues.responseTime">Within 24 hours</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-6">
+                                <div class="flex space-x-4">
+                                    <a href="https://github.com" target="_blank" class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover-lift hover:text-accent transition-colors">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com" target="_blank" class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover-lift hover:text-accent transition-colors">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="https://instagram.com" target="_blank" class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover-lift hover:text-accent transition-colors">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="footer-text" data-i18n="footer-text">&copy; 2025 Blind Mizuri. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
