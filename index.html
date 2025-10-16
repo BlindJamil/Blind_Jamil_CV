@@ -69,6 +69,17 @@
     
     <!-- Custom CSS -->
     <style>
+        /* Prevent horizontal scroll */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+            position: relative;
+        }
+        
         .fade-in-up {
             opacity: 0;
             transform: translateY(20px);
@@ -138,6 +149,89 @@
             object-position: center;
             display: block;
         }
+        
+        /* Ensure all containers are responsive */
+        .max-w-7xl, .max-w-6xl, .max-w-4xl, .max-w-3xl, .max-w-2xl {
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .max-w-2xl { max-width: 42rem; }
+            .max-w-3xl { max-width: 48rem; }
+        }
+        
+        @media (min-width: 768px) {
+            .max-w-4xl { max-width: 56rem; }
+            .max-w-6xl { max-width: 72rem; }
+        }
+        
+        @media (min-width: 1024px) {
+            .max-w-7xl { max-width: 80rem; }
+        }
+        
+        /* Fix navigation overflow */
+        nav .flex {
+            flex-wrap: wrap;
+        }
+        
+        /* Ensure text doesn't overflow */
+        h1, h2, h3, h4, h5, h6, p, a, span, div {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        /* Fix skills grid responsiveness */
+        .grid {
+            width: 100%;
+        }
+        
+        /* Fix social links spacing on small screens */
+        @media (max-width: 480px) {
+            .flex.space-x-6 {
+                gap: 1rem;
+            }
+            
+            .flex.space-x-4 {
+                gap: 0.75rem;
+            }
+        }
+        
+        /* Ensure images don't overflow */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Fix form inputs on mobile */
+        input, textarea, button {
+            max-width: 100%;
+        }
+        
+        /* Fix long email addresses */
+        .text-dark\/70 {
+            word-break: break-all;
+        }
+        
+        /* Additional mobile optimizations */
+        @media (max-width: 640px) {
+            .hover-lift:hover {
+                transform: translateY(-2px);
+            }
+            
+            /* Reduce padding on mobile */
+            section {
+                overflow-x: hidden;
+            }
+        }
+        
+        /* Fix specific overflow issues */
+        .portfolio-item, .design-project, .experience-item, .skill-card {
+            max-width: 100%;
+        }
     </style>
 </head>
 <body class="font-sans bg-white text-dark smooth-scroll">
@@ -146,7 +240,7 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-200 z-40 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex justify-between items-center">
                 <div class="font-display font-bold text-xl text-dark tracking-tight" data-i18n="hero.name">Blind Mizuri</div>
                 
@@ -241,31 +335,31 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center gradient-yellow">
-        <div class="max-w-6xl mx-auto px-4 text-center">
+    <section id="home" class="min-h-screen flex items-center justify-center gradient-yellow px-4">
+        <div class="max-w-6xl mx-auto w-full text-center">
             <div class="fade-in-up">
-                <h1 class="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-dark mb-6 leading-tight">
+                <h1 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-dark mb-4 sm:mb-6 leading-tight px-2">
                     <span class="hero-name" data-i18n="hero.name">Blind Mizuri</span><br>
-                    <span class="hero-title text-2xl md:text-3xl lg:text-4xl font-medium text-accent" data-i18n="hero.title">Full-Stack Developer & Graphic Designer</span>
+                    <span class="hero-title text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-accent" data-i18n="hero.title">Full-Stack Developer & Graphic Designer</span>
                 </h1>
                 
-                <p class="hero-intro text-lg md:text-xl text-dark/80 mb-8 max-w-3xl mx-auto leading-relaxed" data-i18n="hero.intro">
+                <p class="hero-intro text-base sm:text-lg md:text-xl text-dark/80 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-2" data-i18n="hero.intro">
                     I'm a creative full-stack developer and designer who blends functionality with elegance to craft engaging digital experiences.
                 </p>
                 
-                <div class="flex justify-center space-x-6 mb-12">
-                    <a href="https://github.com/BlindJamil" target="_blank" class="social-link bg-white text-dark p-4 rounded-full shadow-lg hover-lift hover:text-accent">
-                        <i class="fab fa-github text-2xl"></i>
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
+                    <a href="https://github.com/BlindJamil" target="_blank" class="social-link bg-white text-dark p-3 sm:p-4 rounded-full shadow-lg hover-lift hover:text-accent">
+                        <i class="fab fa-github text-xl sm:text-2xl"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/blind-jamil-8378b5368/" target="_blank" class="social-link bg-white text-dark p-4 rounded-full shadow-lg hover-lift hover:text-accent">
-                        <i class="fab fa-linkedin text-2xl"></i>
+                    <a href="https://www.linkedin.com/in/blind-jamil-8378b5368/" target="_blank" class="social-link bg-white text-dark p-3 sm:p-4 rounded-full shadow-lg hover-lift hover:text-accent">
+                        <i class="fab fa-linkedin text-xl sm:text-2xl"></i>
                     </a>
-                    <a href="https://www.instagram.com/blind_jamil_mizuri/" target="_blank" class="social-link bg-white text-dark p-4 rounded-full shadow-lg hover-lift hover:text-accent">
-                        <i class="fab fa-instagram text-2xl"></i>
+                    <a href="https://www.instagram.com/blind_jamil_mizuri/" target="_blank" class="social-link bg-white text-dark p-3 sm:p-4 rounded-full shadow-lg hover-lift hover:text-accent">
+                        <i class="fab fa-instagram text-xl sm:text-2xl"></i>
                     </a>
                 </div>
                 
-                <a href="#portfolio" class="cta-button inline-block bg-accent text-white px-8 py-4 rounded-full font-medium hover:bg-accent/90 transition-all duration-300 hover-lift" data-i18n="hero.cta">
+                <a href="#portfolio" class="cta-button inline-block bg-accent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-accent/90 transition-all duration-300 hover-lift text-sm sm:text-base" data-i18n="hero.cta">
                     View My Work
                 </a>
             </div>
@@ -273,14 +367,14 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white">
+    <section id="skills" class="py-12 sm:py-16 md:py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="skills-title font-display font-bold text-3xl md:text-4xl text-dark mb-4" data-i18n="skills-title">Skills & Expertise</h2>
-                <p class="skills-subtitle text-lg text-dark/70 max-w-2xl mx-auto" data-i18n="skills-subtitle">Technologies and tools I use to bring ideas to life</p>
+            <div class="text-center mb-12 sm:mb-16 fade-in-up">
+                <h2 class="skills-title font-display font-bold text-2xl sm:text-3xl md:text-4xl text-dark mb-3 sm:mb-4 px-2" data-i18n="skills-title">Skills & Expertise</h2>
+                <p class="skills-subtitle text-base sm:text-lg text-dark/70 max-w-2xl mx-auto px-4" data-i18n="skills-subtitle">Technologies and tools I use to bring ideas to life</p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 <div class="skill-card bg-secondary p-6 rounded-xl shadow-sm hover-lift fade-in-up text-center">
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fab fa-laravel text-2xl text-accent"></i>
@@ -349,23 +443,23 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-secondary">
+    <section id="portfolio" class="py-12 sm:py-16 md:py-20 bg-secondary">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="portfolio-title font-display font-bold text-3xl md:text-4xl text-dark mb-4" data-i18n="portfolio.title">Selected Work</h2>
-                <p class="portfolio-subtitle text-lg text-dark/70 max-w-2xl mx-auto" data-i18n="portfolio.subtitle">A showcase of my recent web development and graphic design projects</p>
+            <div class="text-center mb-12 sm:mb-16 fade-in-up">
+                <h2 class="portfolio-title font-display font-bold text-2xl sm:text-3xl md:text-4xl text-dark mb-3 sm:mb-4 px-2" data-i18n="portfolio.title">Selected Work</h2>
+                <p class="portfolio-subtitle text-base sm:text-lg text-dark/70 max-w-2xl mx-auto px-4" data-i18n="portfolio.subtitle">A showcase of my recent web development and graphic design projects</p>
             </div>
             
             <!-- Web Development Section -->
-            <div class="mb-20">
-                <div class="text-center mb-12 fade-in-up">
-                    <h3 class="font-display font-bold text-2xl md:text-3xl text-dark mb-4 flex items-center justify-center">
-                        <span class="mr-3">🧱</span>
+            <div class="mb-12 sm:mb-16 md:mb-20">
+                <div class="text-center mb-8 sm:mb-12 fade-in-up">
+                    <h3 class="font-display font-bold text-xl sm:text-2xl md:text-3xl text-dark mb-4 flex flex-wrap items-center justify-center gap-2 px-2">
+                        <span>🧱</span>
                         <span data-i18n="portfolio.webProjectsTitle">Web Development Projects</span>
                     </h3>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8" id="webProjectsContainer">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8" id="webProjectsContainer">
                     <!-- Web Project: MHA Plus -->
                     <div class="portfolio-item fade-in-up hover-lift web-project group">
                         <div class="bg-white rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
@@ -435,14 +529,14 @@
             
             <!-- Graphic Design Section -->
             <div>
-                <div class="text-center mb-12 fade-in-up">
-                    <h3 class="font-display font-bold text-2xl md:text-3xl text-dark mb-4 flex items-center justify-center">
-                        <span class="mr-3">🎨</span>
+                <div class="text-center mb-8 sm:mb-12 fade-in-up">
+                    <h3 class="font-display font-bold text-xl sm:text-2xl md:text-3xl text-dark mb-4 flex flex-wrap items-center justify-center gap-2 px-2">
+                        <span>🎨</span>
                         <span data-i18n="portfolio.designProjectsTitle">Graphic Design Gallery</span>
                     </h3>
                 </div>
                 
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8" id="designProjectsContainer">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-8" id="designProjectsContainer">
                     <!-- Design: Booth Image (Featured) -->
                     <div class="design-project hover-lift fade-in-up cursor-pointer group">
                         <div class="w-full h-full relative">
@@ -532,86 +626,86 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-white">
+    <section id="experience" class="py-12 sm:py-16 md:py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="experience-title font-display font-bold text-3xl md:text-4xl text-dark mb-4" data-i18n="experience-title">Experience</h2>
-                <p class="experience-subtitle text-lg text-dark/70 max-w-2xl mx-auto" data-i18n="experience-subtitle">Professional journey and key achievements</p>
+            <div class="text-center mb-12 sm:mb-16 fade-in-up">
+                <h2 class="experience-title font-display font-bold text-2xl sm:text-3xl md:text-4xl text-dark mb-3 sm:mb-4 px-2" data-i18n="experience-title">Experience</h2>
+                <p class="experience-subtitle text-base sm:text-lg text-dark/70 max-w-2xl mx-auto px-4" data-i18n="experience-subtitle">Professional journey and key achievements</p>
             </div>
             
             <div class="max-w-4xl mx-auto">
-                <div class="space-y-12">
+                <div class="space-y-8 sm:space-y-12">
                     <!-- Current Role -->
                     <div class="experience-item fade-in-up">
-                        <div class="bg-secondary rounded-xl p-8 hover-lift">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <div class="bg-secondary rounded-xl p-4 sm:p-6 md:p-8 hover-lift">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4 sm:mb-6">
                                 <div>
-                                    <h3 class="font-display font-semibold text-xl text-dark mb-2" data-i18n="exp.current.title">Head of Operations & Co-Founder</h3>
+                                    <h3 class="font-display font-semibold text-lg sm:text-xl text-dark mb-2" data-i18n="exp.current.title">Head of Operations & Co-Founder</h3>
                                     <p class="text-accent font-medium mb-2" data-i18n="exp.current.company">MHA Plus</p>
                                     <p class="text-sm text-dark/60" data-i18n="exp.current.time">2022 - Present</p>
                                 </div>
                                 <div class="mt-4 md:mt-0">
-                                    <span class="inline-block bg-primary px-4 py-2 rounded-full text-sm font-medium text-dark" data-i18n="exp.current.badge">Co-Founder</span>
+                                    <span class="inline-block bg-primary px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium text-dark" data-i18n="exp.current.badge">Co-Founder</span>
                                 </div>
                             </div>
-                            <p class="text-dark/70 leading-relaxed mb-4" data-i18n="exp.current.desc">
+                            <p class="text-sm sm:text-base text-dark/70 leading-relaxed mb-4" data-i18n="exp.current.desc">
                                 Co-founded and currently manage all operational aspects of MHA Plus, overseeing business strategy, client relations, and service delivery. Drive growth through strategic marketing initiatives, develop and implement business processes, and ensure high-quality project execution from concept to completion.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.businessStrategy">Business Strategy</span>
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.marketingStrategy">Marketing Strategy</span>
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.clientManagement">Client Management</span>
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.projectExecution">Project Execution</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.businessStrategy">Business Strategy</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.marketingStrategy">Marketing Strategy</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.clientManagement">Client Management</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.current.tags.projectExecution">Project Execution</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Freelance Work -->
                     <div class="experience-item fade-in-up">
-                        <div class="bg-secondary rounded-xl p-8 hover-lift">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <div class="bg-secondary rounded-xl p-4 sm:p-6 md:p-8 hover-lift">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4 sm:mb-6">
                                 <div>
-                                    <h3 class="font-display font-semibold text-xl text-dark mb-2" data-i18n="exp.freelance.title">Freelance Developer & Designer</h3>
+                                    <h3 class="font-display font-semibold text-lg sm:text-xl text-dark mb-2" data-i18n="exp.freelance.title">Freelance Developer & Designer</h3>
                                     <p class="text-accent font-medium mb-2" data-i18n="exp.freelance.company">Independent</p>
                                     <p class="text-sm text-dark/60" data-i18n="exp.freelance.time">2020 - Present</p>
                                 </div>
                                 <div class="mt-4 md:mt-0">
-                                    <span class="inline-block bg-primary px-4 py-2 rounded-full text-sm font-medium text-dark" data-i18n="exp.freelance.badge">Freelance</span>
+                                    <span class="inline-block bg-primary px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium text-dark" data-i18n="exp.freelance.badge">Freelance</span>
                                 </div>
                             </div>
-                            <p class="text-dark/70 leading-relaxed mb-4" data-i18n="exp.freelance.desc">
+                            <p class="text-sm sm:text-base text-dark/70 leading-relaxed mb-4" data-i18n="exp.freelance.desc">
                                 Delivering end-to-end web development and graphic design solutions for diverse clients. Specialized in creating responsive websites, e-commerce platforms, and comprehensive brand identity systems that drive business growth and user engagement.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.fullStack">Full-Stack Development</span>
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.brandDesign">Brand Design</span>
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.clientRelations">Client Relations</span>
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.projectManagement">Project Management</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.fullStack">Full-Stack Development</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.brandDesign">Brand Design</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.clientRelations">Client Relations</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.freelance.tags.projectManagement">Project Management</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Personal Projects -->
                     <div class="experience-item fade-in-up">
-                        <div class="bg-secondary rounded-xl p-8 hover-lift">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <div class="bg-secondary rounded-xl p-4 sm:p-6 md:p-8 hover-lift">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4 sm:mb-6">
                                 <div>
-                                    <h3 class="font-display font-semibold text-xl text-dark mb-2" data-i18n="exp.personal.title">Personal Projects & Learning</h3>
+                                    <h3 class="font-display font-semibold text-lg sm:text-xl text-dark mb-2" data-i18n="exp.personal.title">Personal Projects & Learning</h3>
                                     <p class="text-accent font-medium mb-2" data-i18n="exp.personal.company">Continuous Development</p>
                                     <p class="text-sm text-dark/60" data-i18n="exp.personal.time">2019 - Present</p>
                                 </div>
                                 <div class="mt-4 md:mt-0">
-                                    <span class="inline-block bg-primary px-4 py-2 rounded-full text-sm font-medium text-dark" data-i18n="exp.personal.badge">Innovation</span>
+                                    <span class="inline-block bg-primary px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium text-dark" data-i18n="exp.personal.badge">Innovation</span>
                                 </div>
                             </div>
-                            <p class="text-dark/70 leading-relaxed mb-4" data-i18n="exp.personal.desc">
+                            <p class="text-sm sm:text-base text-dark/70 leading-relaxed mb-4" data-i18n="exp.personal.desc">
                                 Continuously exploring new technologies and design trends through personal projects. Built various web applications, mobile-responsive sites, and design systems while staying current with industry best practices and emerging technologies.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.selfLearning">Self-Learning</span>
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.innovation">Innovation</span>
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.experimentation">Experimentation</span>
-                                <span class="px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.problemSolving">Problem Solving</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.selfLearning">Self-Learning</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.innovation">Innovation</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.experimentation">Experimentation</span>
+                                <span class="px-2 sm:px-3 py-1 bg-white text-xs font-medium rounded-full border" data-i18n="exp.personal.tags.problemSolving">Problem Solving</span>
                             </div>
                         </div>
                     </div>
@@ -621,37 +715,37 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 gradient-yellow">
+    <section id="contact" class="py-12 sm:py-16 md:py-20 gradient-yellow">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="contact-title font-display font-bold text-3xl md:text-4xl text-dark mb-4" data-i18n="contactSection.title">Let's Work Together</h2>
-                <p class="contact-subtitle text-lg text-dark/70 max-w-2xl mx-auto" data-i18n="contactSection.subtitle">Ready to bring your ideas to life? Get in touch and let's create something amazing.</p>
+            <div class="text-center mb-12 sm:mb-16 fade-in-up">
+                <h2 class="contact-title font-display font-bold text-2xl sm:text-3xl md:text-4xl text-dark mb-3 sm:mb-4 px-2" data-i18n="contactSection.title">Let's Work Together</h2>
+                <p class="contact-subtitle text-base sm:text-lg text-dark/70 max-w-2xl mx-auto px-4" data-i18n="contactSection.subtitle">Ready to bring your ideas to life? Get in touch and let's create something amazing.</p>
             </div>
             
             <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
                     <!-- Contact Form -->
                     <div class="fade-in-up">
-                        <form class="space-y-6" id="contactForm">
+                        <form class="space-y-4 sm:space-y-6" id="contactForm">
                             <div>
                                 <label for="name" class="form-label block text-sm font-medium text-dark mb-2" data-i18n="contactSection.labels.name">Name</label>
                                 <input type="text" id="name" name="name" required 
-                                       class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300">
+                                       class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 text-sm sm:text-base">
                             </div>
                             
                             <div>
                                 <label for="email" class="form-label block text-sm font-medium text-dark mb-2" data-i18n="contactSection.labels.email">Email</label>
                                 <input type="email" id="email" name="email" required 
-                                       class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300">
+                                       class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 text-sm sm:text-base">
                             </div>
                             
                             <div>
                                 <label for="message" class="form-label block text-sm font-medium text-dark mb-2" data-i18n="contactSection.labels.message">Message</label>
                                 <textarea id="message" name="message" rows="5" required 
-                                          class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 resize-vertical"></textarea>
+                                          class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 resize-vertical text-sm sm:text-base"></textarea>
                             </div>
                             
-                            <button type="submit" class="submit-button w-full bg-accent text-white py-3 px-6 rounded-lg font-medium hover:bg-accent/90 transition-all duration-300 hover-lift" data-i18n="contactSection.submit">
+                            <button type="submit" class="submit-button w-full bg-accent text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg font-medium hover:bg-accent/90 transition-all duration-300 hover-lift text-sm sm:text-base" data-i18n="contactSection.submit">
                                 Send Message
                             </button>
                         </form>
@@ -659,46 +753,46 @@
                     
                     <!-- Contact Info -->
                     <div class="fade-in-up">
-                        <div class="space-y-8">
+                        <div class="space-y-6 sm:space-y-8">
                             <div>
-                                <h3 class="contact-info-title font-display font-semibold text-xl text-dark mb-4" data-i18n="contactSection.infoTitle">Get In Touch</h3>
-                                <p class="contact-info-text text-dark/70 leading-relaxed" data-i18n="contactSection.infoText">
+                                <h3 class="contact-info-title font-display font-semibold text-lg sm:text-xl text-dark mb-3 sm:mb-4" data-i18n="contactSection.infoTitle">Get In Touch</h3>
+                                <p class="contact-info-text text-sm sm:text-base text-dark/70 leading-relaxed" data-i18n="contactSection.infoText">
                                     I'm always interested in new opportunities and exciting projects. Whether you need a website, graphic design, or just want to say hello, feel free to reach out!
                                 </p>
                             </div>
                             
-                            <div class="space-y-4">
-                                <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
-                                        <i class="fas fa-envelope text-accent"></i>
+                            <div class="space-y-3 sm:space-y-4">
+                                <div class="flex items-center space-x-3 sm:space-x-4">
+                                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-sm flex-shrink-0">
+                                        <i class="fas fa-envelope text-accent text-sm sm:text-base"></i>
                                     </div>
-                                    <div>
-                                        <p class="font-medium text-dark" data-i18n="contactSection.metaLabels.email">Email</p>
-                                        <p class="text-dark/70">blindjameel71@gmail.com</p>
+                                    <div class="min-w-0 flex-1">
+                                        <p class="font-medium text-dark text-sm sm:text-base" data-i18n="contactSection.metaLabels.email">Email</p>
+                                        <p class="text-dark/70 text-xs sm:text-sm break-all">blindjameel71@gmail.com</p>
                                     </div>
                                 </div>
                                 
-                                <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
-                                        <i class="fas fa-phone text-accent"></i>
+                                <div class="flex items-center space-x-3 sm:space-x-4">
+                                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-sm flex-shrink-0">
+                                        <i class="fas fa-phone text-accent text-sm sm:text-base"></i>
                                     </div>
-                                    <div>
-                                        <p class="font-medium text-dark" data-i18n="contactSection.metaLabels.phone">Phone</p>
-                                        <p class="text-dark/70">+964 750 262 2022</p>
+                                    <div class="min-w-0 flex-1">
+                                        <p class="font-medium text-dark text-sm sm:text-base" data-i18n="contactSection.metaLabels.phone">Phone</p>
+                                        <p class="text-dark/70 text-xs sm:text-sm">+964 750 262 2022</p>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="pt-6">
-                                <div class="flex space-x-4">
-                                    <a href="https://github.com/BlindJamil" target="_blank" class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover-lift hover:text-accent transition-colors">
-                                        <i class="fab fa-github"></i>
+                            <div class="pt-4 sm:pt-6">
+                                <div class="flex flex-wrap gap-3 sm:gap-4">
+                                    <a href="https://github.com/BlindJamil" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover-lift hover:text-accent transition-colors">
+                                        <i class="fab fa-github text-sm sm:text-base"></i>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/blind-jamil-8378b5368/" target="_blank" class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover-lift hover:text-accent transition-colors">
-                                        <i class="fab fa-linkedin"></i>
+                                    <a href="https://www.linkedin.com/in/blind-jamil-8378b5368/" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover-lift hover:text-accent transition-colors">
+                                        <i class="fab fa-linkedin text-sm sm:text-base"></i>
                                     </a>
-                                    <a href="https://www.instagram.com/blind_jamil_mizuri/" target="_blank" class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover-lift hover:text-accent transition-colors">
-                                        <i class="fab fa-instagram"></i>
+                                    <a href="https://www.instagram.com/blind_jamil_mizuri/" target="_blank" class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-sm hover-lift hover:text-accent transition-colors">
+                                        <i class="fab fa-instagram text-sm sm:text-base"></i>
                                     </a>
                                 </div>
                             </div>
