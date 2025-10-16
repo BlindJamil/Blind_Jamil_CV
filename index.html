@@ -69,6 +69,11 @@
     
     <!-- Custom CSS -->
     <style>
+        /* Force light mode regardless of system preferences */
+        html {
+            color-scheme: light only;
+        }
+        
         /* Prevent horizontal scroll */
         * {
             box-sizing: border-box;
@@ -78,6 +83,8 @@
             overflow-x: hidden;
             max-width: 100%;
             position: relative;
+            background-color: #ffffff;
+            color: #374151;
         }
         
         .fade-in-up {
@@ -93,6 +100,15 @@
         
         .smooth-scroll {
             scroll-behavior: smooth;
+        }
+        
+        /* Section heading decorative underline */
+        .section-underline {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #F59E0B 0%, #FDE68A 100%);
+            margin: 0.75rem auto 0;
+            border-radius: 2px;
         }
         
         /* RTL support */
@@ -457,6 +473,7 @@
                         <span>🧱</span>
                         <span data-i18n="portfolio.webProjectsTitle">Web Development Projects</span>
                     </h3>
+                    <div class="section-underline"></div>
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8" id="webProjectsContainer">
@@ -534,6 +551,7 @@
                         <span>🎨</span>
                         <span data-i18n="portfolio.designProjectsTitle">Graphic Design Gallery</span>
                     </h3>
+                    <div class="section-underline"></div>
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-8" id="designProjectsContainer">
