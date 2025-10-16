@@ -242,6 +242,13 @@
         .hero-title {
             overflow: visible !important;
             white-space: normal !important;
+            display: inline !important;
+        }
+        
+        .hero-title-wrapper {
+            display: block !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
         }
         
         /* Ensure text containers never overflow */
@@ -738,7 +745,9 @@
             <div class="fade-in-up">
                 <h1 class="font-display font-bold text-dark mb-4 sm:mb-6 leading-tight">
                     <span class="hero-name block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2" data-i18n="hero.name">Blind&nbsp;Mizuri</span>
-                    <span class="hero-title block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-accent px-4" data-i18n="hero.title">Full-Stack&nbsp;Developer<br class="sm:hidden" /><span class="hidden sm:inline"> &amp; </span><span class="block sm:inline">Graphic&nbsp;Designer</span></span>
+                    <span class="hero-title-wrapper block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-accent px-4">
+                        <span class="hero-title inline" data-i18n="hero.title">Full-Stack Developer & Graphic Designer</span>
+                    </span>
                 </h1>
                 
                 <p class="hero-intro text-sm sm:text-base md:text-lg lg:text-xl text-dark/80 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4 sm:px-6" data-i18n="hero.intro">

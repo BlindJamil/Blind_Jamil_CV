@@ -1061,9 +1061,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Clear the text first
         heroTitle.textContent = '';
-        heroTitle.style.display = 'inline-block';
         heroTitle.style.borderRight = '3px solid #F59E0B';
         heroTitle.style.paddingRight = '5px';
+        heroTitle.style.display = 'inline';
         
         let charIndex = 0;
         
