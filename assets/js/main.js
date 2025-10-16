@@ -24,6 +24,7 @@ const translations = {
         projects: {
             airoscan: { title: "AiroScan Website", desc: "Responsive website for AiroScan with clean UI and fast performance." },
             mhaplus: { title: "MHA Plus Website", desc: "Corporate website for MHA Plus with clear services and modern design." },
+            tiucharity: { title: "TIU Charity", desc: "Donation platform for Tishk International University to support charitable initiatives and community projects." },
             booth: { title: "Exhibition Booth" },
             services: { title: "Services Brochure" },
             social: { title: "Social Media" },
@@ -197,6 +198,7 @@ const translations = {
         projects: {
             airoscan: { title: "موقع AiroScan", desc: "موقع استعراضي متجاوب لآيروسكان بواجهة أنيقة وأداء سريع." },
             mhaplus: { title: "موقع MHA Plus", desc: "موقع شركة MHA Plus بخدمات واضحة وتصميم حديث." },
+            tiucharity: { title: "TIU للأعمال الخيرية", desc: "منصة تبرعات لجامعة تشك الدولية لدعم المبادرات الخيرية ومشاريع المجتمع." },
             booth: { title: "جناح عرض" },
             services: { title: "نشرة الخدمات" },
             social: { title: "وسائل التواصل" },
@@ -366,6 +368,7 @@ const translations = {
         projects: {
             airoscan: { title: "ماڵپەڕی AiroScan", desc: "ماڵپەڕێکی وەگەرخراو بۆ AiroScan بە ڕووکاری جوان و پەرفۆرمانسی خێرا." },
             mhaplus: { title: "ماڵپەڕی MHA Plus", desc: "ماڵپەڕێکی کۆمپانیایی بۆ MHA Plus بە خزمەتگوزارییە ڕوون و دیزاینی نوێ." },
+            tiucharity: { title: "TIU خێراتی", desc: "ستەمێکی بەخشین بۆ زانکۆی نێودەوڵەتی تیشک بۆ پشتگیری هەنگاوەکانی خێراتی و پڕۆژەکانی کۆمەڵگا." },
             booth: { title: "بووتی پێشاندان" },
             services: { title: "بروشوری خزمەتگوزاری" },
             social: { title: "سۆشیاڵ میدیا" },
@@ -1050,32 +1053,13 @@ function initializeSmoothScroll() {
 
 // Add some interactive features
 document.addEventListener('DOMContentLoaded', function() {
-    // Add typing effect to hero title (optional enhancement)
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        heroTitle.style.overflow = 'hidden';
-        heroTitle.style.borderRight = '2px solid #F59E0B';
-        heroTitle.style.whiteSpace = 'nowrap';
-        heroTitle.style.animation = 'typing 3s steps(40, end), blink-caret 0.75s step-end infinite';
-    }
-    
-    // Removed parallax effect for better user experience
-    // Clean scrolling without distracting background movement
+    // Removed typing effect - causes unwanted blinking cursor
+    // Clean, professional presentation without distractions
 });
 
-// CSS animations for typing effect
+// CSS animations - removed typing effect
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-    }
-    
-    @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: #F59E0B }
-    }
-    
     .notification {
         backdrop-filter: blur(10px);
     }

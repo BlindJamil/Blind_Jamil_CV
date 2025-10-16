@@ -229,6 +229,12 @@
             word-break: normal !important;
             max-width: 100% !important;
             overflow: hidden !important;
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            cursor: default !important;
+            caret-color: transparent !important;
         }
         
         p, a, span, div, label, button {
@@ -236,6 +242,18 @@
             overflow-wrap: break-word !important;
             hyphens: none !important;
             max-width: 100% !important;
+            caret-color: transparent !important;
+        }
+        
+        /* Remove any blinking cursor or text selection from hero */
+        .hero-name, .hero-title, .hero-intro {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            cursor: default !important;
+            caret-color: transparent !important;
+            outline: none !important;
         }
         
         /* Ensure text containers never overflow */
@@ -477,6 +495,152 @@
             h1, h2, h3 {
                 letter-spacing: -0.02em;
             }
+        }
+        
+        /* Remove any potential contenteditable or input behavior */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Ensure no text can be accidentally edited */
+        body * {
+            outline: none !important;
+        }
+        
+        /* Professional button styling consistency */
+        button, .cta-button, a[href] {
+            cursor: pointer !important;
+            user-select: none !important;
+            -webkit-tap-highlight-color: rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Smooth transitions for all interactive elements */
+        a, button, .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Ensure images never cause layout shift */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Professional focus states for accessibility */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #F59E0B;
+            outline-offset: 2px;
+        }
+        
+        /* Remove focus outline for mouse users */
+        a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
+            outline: none;
+        }
+        
+        /* Perfect vertical rhythm */
+        section {
+            position: relative;
+        }
+        
+        /* Ensure navigation stays on top without glitches */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            will-change: transform;
+        }
+        
+        /* Add padding to body to account for fixed nav */
+        body {
+            padding-top: 0;
+        }
+        
+        /* Smooth scroll offset for anchor links */
+        html {
+            scroll-padding-top: 80px;
+        }
+        
+        /* Ensure proper spacing after fixed nav */
+        #home {
+            padding-top: 4rem;
+        }
+        
+        /* Fix any potential text rendering issues */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        /* Ensure social icons are perfectly circular */
+        .social-link, a[href*="github"], a[href*="linkedin"], a[href*="instagram"] {
+            aspect-ratio: 1;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Fix any grid alignment issues */
+        .grid {
+            display: grid;
+            grid-auto-rows: auto;
+        }
+        
+        /* Ensure consistent card heights */
+        .skill-card, .portfolio-item, .experience-item {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Fix button text alignment */
+        button, .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        /* Prevent FOUC (Flash of Unstyled Content) */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Ensure footer stays at bottom */
+        footer {
+            margin-top: auto;
+        }
+        
+        /* Fix any spacing inconsistencies */
+        * + * {
+            margin-top: 0;
+        }
+        
+        /* Remove default browser margins */
+        body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Professional shadow consistency */
+        .shadow-sm {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .shadow-xl {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
     </style>
 </head>
